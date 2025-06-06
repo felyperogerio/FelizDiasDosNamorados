@@ -1,92 +1,240 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Dia dos Namorados</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-        }
-        iframe.spotify {
-            width: 100%;
-            height: 80px;
-            border: none;
-        }
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            margin: 40px 0;
-            position: relative;
-        }
-        .carousel img {
-            width: 100%;
-            flex-shrink: 0;
-            transition: transform 1s ease-in-out;
-        }
-        .time-counter {
-            font-size: 24px;
-            margin: 20px 0;
-        }
-        .love-letter {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 10px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #ff99aa;
+      color: white;
+    }
+
+    h1 {
+  font-size: 2.8em;
+  color: white;
+  animation: fadeZoom 2s ease-in-out, glow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px #fff, 0 0 20px #ff5e8e, 0 0 30px #ff5e8e;
+}
+
+@keyframes fadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff5e8e, 0 0 30px #ff5e8e;
+  }
+  100% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff3380, 0 0 40px #ff3380;
+  }
+}
+
+    iframe {
+      border: none;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    .carousel-container {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 20px;
+    }
+
+    .carousel-container img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 15px;
+      display: inline-block;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: fadeIn 1.5s ease-in;
+      transition: transform 0.3s;
+    }
+
+    .carousel-container img:hover {
+      transform: scale(1.05);
+    }
+
+    .album {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .album img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .contador {
+      margin: 30px 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #c71585;
+    }
+
+    .mensagem {
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: fadeIn 2s ease-in;
+    }
+
+    /* Corações em queda (chuva romântica) */
+.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  transform: rotate(-45deg);
+  animation: fall linear infinite;
+  opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(-45deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(-45deg);
+    opacity: 0;
+  }
+}
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Nosso Amor em Canção</h1>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1DLKuppSYytOuxhtI6KBGu?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>" allowtransparency="true" allow="encrypted-media"></iframe>
-    </header>
+  <div class="hearts">
+  <div class="heart" style="left: 5%; animation-duration: 6s; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 15%; animation-duration: 7s; animation-delay: 1s;"></div>
+  <div class="heart" style="left: 25%; animation-duration: 5s; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 40%; animation-duration: 6.5s; animation-delay: 0.5s;"></div>
+  <div class="heart" style="left: 55%; animation-duration: 8s; animation-delay: 1.5s;"></div>
+  <div class="heart" style="left: 70%; animation-duration: 5.5s; animation-delay: 2.5s;"></div>
+  <div class="heart" style="left: 85%; animation-duration: 6s; animation-delay: 3s;"></div>
+</div>
 
-    <section class="carousel" id="carousel">
-        <img> <img src="20240902_215200_Original.jpeg" width="800" height="600">
-    <img src="IMG_4425_Original.jpeg" width="800" height="600"> </img>
-    </section>
+  <header>
+    <h1>Feliz Dia dos Namorados ❤️</h1>
+  </header>
 
-    <div class="time-counter">
-        Estamos juntos há: <strong>1 anos, 4 meses e 1 dias</strong>
-    </div>
+  <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1DLKuppSYytOuxhtI6KBGu?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  
+  <div class="carousel-container">
+    <img src="7A81E129-6734-4E81-B6AB-4E030B182C8B.png" alt="Foto 1" />
+    <img src="8B23A55E-D572-4566-9A0C-214BB6C80925.jpeg" alt="Foto 2" />
+    <img src="9D0AAAA3-A315-4D4F-9EE2-9503892E9743.jpeg" alt="Foto 3" />
+    <img src="D79D2CB4-01FD-41FD-A77A-620FFD3D69E7.jpeg" alt="Foto 4" />
+    <img src="FA5D4A1A-DADE-45D0-B4A8-5B4BCDED2895.jpeg" alt="Foto 5" />
+  </div>
 
-    <section class="love-letter">
-        <h2>Feliz Dia dos Namorados!</h2>
-        <p>
-            Meu amor, hoje celebramos mais um Dia dos Namorados, e eu só consigo pensar no quanto sou grato por ter você ao meu lado. Cada momento que passamos juntos é uma prova de que o amor verdadeiro existe, e que ele é leve, bonito e cheio de significados. Nosso namoro me transforma todos os dias em alguém melhor. 
+  <div class="contador" id="contador"></div>
+
+  <div class="mensagem">
+    <p>
+      Meu amor, hoje celebramos mais um Dia dos Namorados, e eu só consigo pensar no quanto sou grato(a) por ter você ao meu lado. Cada momento que passamos juntos é uma prova de que o amor verdadeiro existe, e que ele é leve, bonito e cheio de significados. Nosso namoro me transforma todos os dias em alguém melhor. 
     </p>
     <p>
       Já vivemos tantas histórias, trocamos tantos olhares, risadas, abraços, planos e sonhos. E o melhor de tudo é saber que isso é só o começo. Eu te amo por tudo o que você é, pelo que somos juntos e por tudo que ainda vamos viver.
     </p>
     <p>
-      Obrigado(a) por caminhar comigo, por me entender, me apoiar e me amar. Feliz Dia dos Namorados! Que a nossa aliança, assim como na música, seja sempre forte, verdadeira e cheia de amor. 💖 </p>
-    </section>
+      Obrigado(a) por caminhar comigo, por me entender, me apoiar e me amar. Feliz Dia dos Namorados! Que a nossa aliança, assim como na música, seja sempre forte, verdadeira e cheia de amor. 💖
+    </p>
+  </div>
 
-    <script>
-        const carousel = document.getElementById('carousel');
-        let scrollAmount = 0;
+  <script>
+    const dataInicio = new Date("2024-02-06");
+    const hoje = new Date();
 
-        function autoScroll() {
-            scrollAmount += window.innerWidth;
-            if (scrollAmount >= carousel.scrollWidth) {
-                scrollAmount = 0;
-            }
-            carousel.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-        }
-        setInterval(autoScroll, 3000);
-    </script>
+    const diff = hoje - dataInicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const anos = Math.floor(dias / 365);
+    const meses = Math.floor((dias % 365) / 30);
+    const diasRestantes = dias - (anos * 365 + meses * 30);
+
+    document.getElementById("contador").innerText = 
+      `${anos} ano(s), ${meses} mês(es) e ${diasRestantes} dia(s) de amor!`;
+  </script>
 </body>
 </html>
