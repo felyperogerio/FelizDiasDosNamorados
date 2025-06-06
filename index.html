@@ -82,8 +82,17 @@
     <img src="https://via.placeholder.com/200?text=Foto+4" alt="Foto 4" />
   </div>
 
-  <!-- Contador de tempo de namoro -->
-  <div class="contador" id="contador"></div>
+  <!-- Data de início do namoro -->
+<data_inicio = datetime(2024, 2, 6)/>
+<data_hoje = datetime.now()/>
+
+<!-- Calcular a diferença em anos, meses e dias -->
+<diferenca = relativedelta(data_hoje, data_inicio)
+anos = diferenca.years
+meses = diferenca.months
+dias = diferenca.days
+
+anos, meses, dias/>
 
   <!-- Texto romântico -->
   <div class="mensagem">
