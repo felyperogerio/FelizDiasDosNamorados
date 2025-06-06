@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      text-align: center;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #ff99aa;
+      color: white;
+    }
+
+    iframe {
+      border: none;
+      margin-top: 20px;
+      border-radius: 12px;
+    }
+
+    .album {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+      gap: 15px;
+    }
+
+    .album img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .contador {
+      margin: 30px 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #c71585;
+    }
+
+    .mensagem {
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+      padding: 20px;
+      font-size: 18px;
+      line-height: 1.6;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Feliz Dia dos Namorados ❤️</h1>
+  </header>
+
+  <!-- Spotify embed -->
+  <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/track/4RVIvXU7ceNA3dB20jGNKx?utm_source=generator" 
+    width="100%" height="152" allowfullscreen="" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy">
+  </iframe>
+
+  <!-- Álbum de fotos -->
+  <div class="album">
+    <img src="https://via.placeholder.com/200?text=Foto+1" alt="Foto 1" />
+    <img src="https://via.placeholder.com/200?text=Foto+2" alt="Foto 2" />
+    <img src="https://via.placeholder.com/200?text=Foto+3" alt="Foto 3" />
+    <img src="https://via.placeholder.com/200?text=Foto+4" alt="Foto 4" />
+  </div>
+
+  <!-- Contador de tempo de namoro -->
+  <div class="contador" id="contador"></div>
+
+  <!-- Texto romântico -->
+  <div class="mensagem">
+    <p>
+      Meu amor, hoje celebramos mais um Dia dos Namorados, e eu só consigo pensar no quanto sou grato(a) por ter você ao meu lado. Cada momento que passamos juntos é uma prova de que o amor verdadeiro existe, e que ele é leve, bonito e cheio de significados. Nosso namoro me transforma todos os dias em alguém melhor. 
+    </p>
+    <p>
+      Já vivemos tantas histórias, trocamos tantos olhares, risadas, abraços, planos e sonhos. E o melhor de tudo é saber que isso é só o começo. Eu te amo por tudo o que você é, pelo que somos juntos e por tudo que ainda vamos viver.
+    </p>
+    <p>
+      Obrigado(a) por caminhar comigo, por me entender, me apoiar e me amar. Feliz Dia dos Namorados! Que a nossa aliança, assim como na música, seja sempre forte, verdadeira e cheia de amor. 💖
+    </p>
+  </div>
+
+  <script>
+    const dataInicio = new Date("2022-03-01"); // coloque a data de início do namoro aqui
+    const hoje = new Date();
+
+    const diff = hoje - dataInicio;
+    const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const anos = Math.floor(dias / 365);
+    const meses = Math.floor((dias % 365) / 30);
+    const diasRestantes = dias - (anos * 365 + meses * 30);
+
+    document.getElementById("contador").innerText = 
+      `${anos} ano(s), ${meses} mês(es) e ${diasRestantes} dia(s) de amor!`;
+  </script>
+</body>
+</html>
